@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
-const NavigationDots = ({active}) => {
-  return (
+const NavigationDots = ({active}) => (
+
     <div className='app__navigation'>
         {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map((item, index) => (
             <a 
@@ -11,8 +11,7 @@ const NavigationDots = ({active}) => {
             style={active === item ? {backgroundColor: '#313BAC'} : {}}
             />
         ))}
-        </div>
-  )
-}
+    </div>
+)
 
 export default NavigationDots;

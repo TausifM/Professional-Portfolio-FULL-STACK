@@ -18,13 +18,3 @@
   margin: 0;
   scroll-behavior: smooth;
 }
-h1,h2,a,p{
-  font-family:var(--font-base) ;
-}
-
-span{
-  color: var(--secondary-color);
-}
-/* .app{
-  background: url(../src/assets//bgIMG.png);
-} */

@@ -1,11 +1,14 @@
 import { Navbar } from "./components";
-import {Header, About} from './container'
+import {Header, About, Work, Skills} from './container';
+import './App.scss'
 function App() {
   return (
     <div className="app">
       <Navbar />
       <Header />
       <About />
+      <Work />
+      <Skills />
     </div>
   );
 }
