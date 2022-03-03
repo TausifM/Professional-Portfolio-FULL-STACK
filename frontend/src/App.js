@@ -1,5 +1,5 @@
 import { Navbar } from "./components";
-import {Header, About, Work, Skills} from './container';
+import {Header, About, Work, Skills, Testimonials} from './container';
 import './App.scss'
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <About />
       <Work />
       <Skills />
+      <Testimonials />
     </div>
   );
 }
