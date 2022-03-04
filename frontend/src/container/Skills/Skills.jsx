@@ -29,12 +29,12 @@ const Skills = () => {
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name + index}
+              key={skill.name }
             >
               <div
                 className="app__flex"
@@ -43,6 +43,7 @@ const Skills = () => {
                 <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
               <p className="p-text">{skill.name}</p>
+              
             </motion.div>
           ))}
         </motion.div>
@@ -56,7 +57,7 @@ const Skills = () => {
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
+                {experience.works.map((work, index) => (
                   <>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
@@ -64,16 +65,17 @@ const Skills = () => {
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
-                      key={work.name}
+                      key={work.name + index}
                     >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
+                      <h4 className="bold-text" >{work.name}</h4>
+                      <p className="p-text">{work.company}</p>   
                     </motion.div>
                     <ReactTooltip
                       id={work.name}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
+                      key={work.name}
                     >
                       {work.desc}
                     </ReactTooltip>
