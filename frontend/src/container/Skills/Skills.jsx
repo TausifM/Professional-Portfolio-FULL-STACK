@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { AppWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
-import ReactTooltip from "react-tooltip";
-import "./Skills.scss";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import ReactTooltip from 'react-tooltip';
+
+import { AppWrap, MotionWrap } from '../../wrapper';
+import { urlFor, client } from '../../client';
+import './Skills.scss';
+
 const Skills = () => {
+  const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
-  const [experiences, setExperience] = useState([]);
+
   useEffect(() => {
     const query = '*[_type == "experiences"]';
     const skillsQuery = '*[_type == "skills"]';
+
     client.fetch(query).then((data) => {
-      setExperience(data);
+      setExperiences(data);
     });
+
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
     });
   }, []);
+
   return (
     <>
-      <h2 className="head-text">
-        Skills & <span>Experiences</span>
-      </h2>
+      <h2 className="head-text">Skills & <span>Experiences</span></h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name}
+              key={skill.name + index}
             >
               <div
                 className="app__flex"
@@ -43,8 +47,11 @@ const Skills = () => {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
+          {experiences.map((experience, index) => (
+            <motion.div
+              className="app__skills-exp-item"
+              key={experience.year + index}
+            >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
@@ -81,4 +88,8 @@ const Skills = () => {
   );
 };
 
-export default AppWrap(Skills, 'skills');
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg',
+);
