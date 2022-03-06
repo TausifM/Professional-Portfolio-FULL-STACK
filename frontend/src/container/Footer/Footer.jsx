@@ -17,7 +17,7 @@ const Footer = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      prevState: { ...formData },
+      ...formData,
       [name]: value,
     });
   };
@@ -93,7 +93,7 @@ const Footer = () => {
       ) : (
         <div>
           <h3 className="head-text">
-            Thanks for contacting me. I will get back to you soon.
+            Thanks for getting in Touch
           </h3>
         </div>
       )}
