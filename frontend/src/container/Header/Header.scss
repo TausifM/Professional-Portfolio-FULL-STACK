@@ -1,6 +1,6 @@
 #home {
     position: relative;
-    background: url("../../assets/bgIMG.png");
+    // background: url("../../assets/bgIMG.png");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -48,7 +48,6 @@
   
     @media screen and (max-width: 1200px) {
       width: 100%;
-      margin-right: 0rem;
     }
   }
   

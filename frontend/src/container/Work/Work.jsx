@@ -33,10 +33,10 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-        My Creative <span>Portfolio</span> <br /> Section
+      My Projects <span> and Professional </span> <br /> Endeavors
       </h2>
       <div className="app__work-filter">
-        {["UI/UX", "MERN Stack", "React JS", "Websites", "All"].map(
+        {["Rental Vehicle Website", "E-Commerce", "NGO Website", "Saloon Website", "Pet Training", "All"].map(
           (item, index) => (
             <div
               key={index}
@@ -57,7 +57,7 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex " key={index}>
             <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt={work.title} />
+              <img src={urlFor(work.imgUrl)} alt={work.title} height="50" width="50"/>
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
